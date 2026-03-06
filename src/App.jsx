@@ -4,13 +4,13 @@ import LoginPage from "./pages/LoginPage";
 import PlanPage from "./pages/PlanPage";
 import QuestionFlowPage from "./pages/QuestionFlowPage";
 import QuestionsListPage from "./pages/QuestionsListPage";
-import Start from "./pages/Start";
+import StartScreen from "./pages/StartScreen";
 import TodayPage from "./pages/TodayPage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Start />} />
+      <Route path="/" element={<StartScreen />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/values" element={<QuestionsListPage />} />
