@@ -303,6 +303,12 @@ textarea:focus {
   line-height: 1.5;
 }
 
+.question-list-text {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .today-preview {
   display: grid;
   gap: 8px;
@@ -428,5 +434,42 @@ textarea:focus {
   .question-text {
     font-size: 1.1rem;
     line-height: 1.6;
+  }
+}
+
+.mission-goal-block {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff, #f7fbf6);
+  padding: 14px 16px;
+  margin: 0 0 16px;
+}
+
+.mission-goal-label {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.mission-goal-text {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  font-weight: 700;
+  white-space: pre-wrap;
+}
+
+.mission-goal-subtext {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 600;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 640px) {
+  .mission-goal-text {
+    font-size: 1.1rem;
   }
 }

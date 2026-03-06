@@ -3,6 +3,7 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import PlanPage from "./pages/PlanPage";
 import QuestionFlowPage from "./pages/QuestionFlowPage";
+import QuestionsListPage from "./pages/QuestionsListPage";
 import Start from "./pages/Start";
 import TodayPage from "./pages/TodayPage";
 
@@ -12,7 +13,7 @@ function App() {
       <Route path="/" element={<Start />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
-      <Route path="/values" element={<Navigate to="/values/vision" replace />} />
+      <Route path="/values" element={<QuestionsListPage />} />
       <Route path="/values/:stepId" element={<QuestionFlowPage />} />
       <Route path="/plan" element={<PlanPage />} />
       <Route path="/today" element={<TodayPage />} />

@@ -77,6 +77,11 @@ export function setFlowAnswer(field, value) {
   writeJson(FLOW_KEY, { ...current, [field]: value ?? "" });
 }
 
+export function setFlowAnswers(nextAnswers) {
+  const current = getFlowAnswers();
+  writeJson(FLOW_KEY, { ...current, ...nextAnswers });
+}
+
 export function getValues() {
   const values = readJson(VALUES_KEY, []);
   return Array.isArray(values) ? values : [];
@@ -118,18 +123,17 @@ export function getTodayTasks() {
   if (!Array.isArray(tasks)) {
     return defaults;
   }
-
-  return defaults.map((defaultTask, index) => {
-    const task = tasks[index] || defaultTask;
-    return {
-      text: typeof task.text === "string" ? task.text : "",
-      done: Boolean(task.done),
-    };
-  });
+  if (tasks.length === 0) {
+    return defaults;
+  }
+  return tasks.map((task) => ({
+    text: typeof task?.text === "string" ? task.text : "",
+    done: Boolean(task?.done),
+  }));
 }
 
 export function setTodayTasks(tasks) {
-  const safeTasks = tasks.slice(0, 3).map((task) => ({
+  const safeTasks = tasks.map((task) => ({
     text: task.text ?? "",
     done: Boolean(task.done),
   }));
