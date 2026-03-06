@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg-1: #f7f4ec;
   --bg-2: #e7efe1;
   --panel: #ffffff;
@@ -152,10 +152,23 @@ textarea:focus {
   border: 1px solid var(--line);
 }
 
+.btn-why {
+  background: #f4f6f2;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 4px 8px;
+  font-size: 0.82rem;
+}
+
 .row-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.task-entry {
+  display: grid;
+  gap: 6px;
 }
 
 .task-row {
@@ -163,6 +176,32 @@ textarea:focus {
   grid-template-columns: 24px 1fr;
   gap: 8px;
   align-items: center;
+}
+
+.reason-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reason-helper {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.reason-detail {
+  margin: 2px 0 0;
+  width: 100%;
+  color: #334338;
+  background: #f4f7f1;
+  border: 1px solid #e0e7da;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  white-space: pre-line;
 }
 
 .error-text {
@@ -180,5 +219,214 @@ textarea:focus {
   .panel {
     padding: 16px;
     border-radius: 12px;
+  }
+}
+.start-panel {
+  width: min(560px, 100%);
+  text-align: center;
+  padding: 36px 28px;
+}
+
+.start-copy {
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.start-copy p {
+  margin: 0 0 24px;
+  font-size: 1.38rem;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+
+.start-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 1.38rem;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.start-list li::before {
+  content: "・";
+}
+
+.question-panel {
+  width: min(640px, 100%);
+}
+
+.progress-badge {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.question-text {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.question-helper {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.answers-section {
+  margin-top: 18px;
+}
+
+.answers-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.answer-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fcfcfb;
+}
+
+.answer-label {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.answer-value {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.today-preview {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 12px;
+}
+
+.qa-info-block {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fbfcfa;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.qa-label {
+  margin: 0 0 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.qa-summary {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.qa-details {
+  margin: 10px 0 0;
+  white-space: pre-line;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.start-button {
+  width: 100%;
+  max-width: 320px;
+  margin: 6px auto 0;
+  font-size: 1.02rem;
+}
+
+.start-subtext {
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.start-login-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.86rem;
+  color: #355845;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .start-panel {
+    padding: 28px 18px;
+  }
+
+  .start-copy p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+
+  .start-list {
+    font-size: 1.15rem;
+    line-height: 1.7;
+  }
+}
+
+.start-copy p {
+  font-weight: 500;
+}
+
+.start-copy .start-lead {
+  font-weight: 700;
+}
+
+.start-list {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto 24px;
+  padding: 0;
+}
+
+.start-list li::before {
+  content: "・";
+}
+
+.header-actions {
+  display: grid;
+  gap: 8px;
+  justify-items: end;
+}
+
+.question-title {
+  margin-bottom: 12px;
+  font-size: 1.85rem;
+}
+
+.question-text {
+  margin: 0 0 14px;
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.qa-label {
+  font-size: 1.02rem;
+}
+
+@media (max-width: 640px) {
+  .header-actions {
+    justify-items: stretch;
+  }
+
+  .question-title {
+    font-size: 1.5rem;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 }

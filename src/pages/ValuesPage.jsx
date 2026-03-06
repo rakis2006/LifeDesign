@@ -1,5 +1,6 @@
-﻿import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FieldReason from "../components/FieldReason";
 import { getValues, setValues } from "../lib/storage";
 
 const MAX_VALUES = 5;
@@ -50,6 +51,10 @@ function ValuesPage() {
                 value={value}
                 maxLength={40}
                 onChange={(event) => updateValue(index, event.target.value)}
+              />
+              <FieldReason
+                helper="日々の判断を迷いなくする基準を明確にするためです。"
+                details="価値観を言語化すると、目標や行動を選ぶときの優先順位がぶれにくくなります。\n3つ以上あると、状況が変わっても意思決定の軸を維持しやすくなります。"
               />
             </label>
           ))}

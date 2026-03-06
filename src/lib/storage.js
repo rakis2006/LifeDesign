@@ -1,5 +1,7 @@
-﻿const AUTH_KEY = "lifedesign_auth";
+const AUTH_KEY = "lifedesign_auth";
+const MODE_KEY = "lifedesign_mode";
 const VALUES_KEY = "lifedesign_values";
+const FLOW_KEY = "lifedesign_flow_answers";
 const PLAN_KEY = "lifedesign_plan";
 const TODAY_KEY = "lifedesign_today";
 
@@ -30,6 +32,49 @@ export function setAuthenticated(isAuth) {
 
 export function clearAuth() {
   localStorage.removeItem(AUTH_KEY);
+}
+
+export function getMode() {
+  return localStorage.getItem(MODE_KEY) || "";
+}
+
+export function setMode(mode) {
+  localStorage.setItem(MODE_KEY, mode);
+}
+
+export function startGuestMode() {
+  setMode("guest");
+  clearAuth();
+  localStorage.removeItem(VALUES_KEY);
+  localStorage.removeItem(FLOW_KEY);
+  localStorage.removeItem(PLAN_KEY);
+  localStorage.removeItem(TODAY_KEY);
+}
+
+const FLOW_DEFAULTS = {
+  vision: "",
+  hanvision: "",
+  mission: "",
+  bossfight: "",
+  quests: "",
+  rules: "",
+};
+
+export function getFlowAnswers() {
+  const saved = readJson(FLOW_KEY, FLOW_DEFAULTS);
+  return {
+    vision: saved?.vision ?? "",
+    hanvision: saved?.hanvision ?? "",
+    mission: saved?.mission ?? "",
+    bossfight: saved?.bossfight ?? "",
+    quests: saved?.quests ?? "",
+    rules: saved?.rules ?? "",
+  };
+}
+
+export function setFlowAnswer(field, value) {
+  const current = getFlowAnswers();
+  writeJson(FLOW_KEY, { ...current, [field]: value ?? "" });
 }
 
 export function getValues() {

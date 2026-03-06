@@ -1,20 +1,21 @@
-﻿import { Navigate, Route, Routes } from "react-router-dom";
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { PublicLoginRoute } from "./components/PublicLoginRoute";
+import { Navigate, Route, Routes } from "react-router-dom";
 import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import PlanPage from "./pages/PlanPage";
+import QuestionFlowPage from "./pages/QuestionFlowPage";
+import Start from "./pages/Start";
 import TodayPage from "./pages/TodayPage";
-import ValuesPage from "./pages/ValuesPage";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<PublicLoginRoute><LoginPage /></PublicLoginRoute>} />
-      <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-      <Route path="/values" element={<ProtectedRoute allowValuesIncomplete><ValuesPage /></ProtectedRoute>} />
-      <Route path="/plan" element={<ProtectedRoute><PlanPage /></ProtectedRoute>} />
-      <Route path="/today" element={<ProtectedRoute><TodayPage /></ProtectedRoute>} />
+      <Route path="/" element={<Start />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/values" element={<Navigate to="/values/vision" replace />} />
+      <Route path="/values/:stepId" element={<QuestionFlowPage />} />
+      <Route path="/plan" element={<PlanPage />} />
+      <Route path="/today" element={<TodayPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

@@ -1,5 +1,6 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import FieldReason from "../components/FieldReason";
 import { getTodayTasks, setTodayTasks } from "../lib/storage";
 
 function TodayPage() {
@@ -30,18 +31,24 @@ function TodayPage() {
         <p className="subtitle">今日やる3つを具体化する</p>
         <div className="form-grid">
           {tasks.map((task, index) => (
-            <div className="task-row" key={index}>
-              <input
-                type="checkbox"
-                checked={task.done}
-                onChange={() => toggleDone(index)}
-                aria-label={`task-${index + 1}-done`}
-              />
-              <input
-                type="text"
-                value={task.text}
-                onChange={(event) => updateTaskText(index, event.target.value)}
-                placeholder={`タスク ${index + 1}`}
+            <div className="task-entry" key={index}>
+              <div className="task-row">
+                <input
+                  type="checkbox"
+                  checked={task.done}
+                  onChange={() => toggleDone(index)}
+                  aria-label={`task-${index + 1}-done`}
+                />
+                <input
+                  type="text"
+                  value={task.text}
+                  onChange={(event) => updateTaskText(index, event.target.value)}
+                  placeholder={`タスク ${index + 1}`}
+                />
+              </div>
+              <FieldReason
+                helper="目標を実行に変えるため、今日やることを明確にするためです。"
+                details="3つに絞ることで、優先順位が定まり着手が速くなります。\n完了チェックを残すと、達成感と振り返りの材料が同時に得られます。"
               />
             </div>
           ))}
