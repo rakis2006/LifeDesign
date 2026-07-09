@@ -22,7 +22,7 @@
 }
 
 .start-screen-wrap {
-  width: min(440px, 100%);
+  width: min(960px, 100%);
   position: relative;
   z-index: 2;
   display: grid;
@@ -34,23 +34,69 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
-.start-brand-left h1 {
+.ld-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.ld-logo-mark-wrap {
+  --logo-size: 68px;
+  --underlay-size: calc(var(--logo-size) * 0.98);
+  position: relative;
+  width: var(--logo-size);
+  height: var(--logo-size);
+  flex: 0 0 var(--logo-size);
+}
+
+.ld-logo-mark-wrap::after {
+  content: "";
+  position: absolute;
+  left: calc((var(--logo-size) - var(--underlay-size)) / 2);
+  top: calc((var(--logo-size) - var(--underlay-size)) / 2);
+  width: var(--underlay-size);
+  height: var(--underlay-size);
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 0;
+}
+
+.ld-logo-image {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 2px 6px rgba(20, 44, 83, 0.18));
+}
+
+.ld-logo-copy {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.03;
+}
+
+.ld-logo-title {
   margin: 0;
-  font-size: 1.65rem;
-  line-height: 1;
-  color: #1e376e;
+  font-size: 2.05rem;
+  letter-spacing: -0.02em;
   font-weight: 900;
+  color: #27417d;
 }
 
-.start-brand-left p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #3e6f92;
+.ld-logo-tagline {
+  margin-top: 4px;
+  font-size: 0.93rem;
   font-weight: 700;
+  color: #56a0df;
 }
 
 .start-top-login {
@@ -58,17 +104,18 @@
   border-radius: 999px;
   background: linear-gradient(180deg, #4d90d8, #2e6db3);
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 1.08rem;
   font-weight: 800;
-  height: 36px;
-  min-width: 86px;
-  padding: 0 14px;
+  height: 52px;
+  min-width: 132px;
+  padding: 0 20px;
   box-shadow: 0 3px 0 rgba(17, 52, 92, 0.4);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   margin-top: 0;
+  position: static;
 }
 
 .start-level-bar {
@@ -118,12 +165,14 @@
 }
 
 .start-hero {
+  position: relative;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.83), rgba(255, 255, 255, 0.92));
-  border: 3px solid #c7def7;
-  border-radius: 26px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  margin-top: 8px;
   padding: 14px 16px;
-  box-shadow: 0 8px 0 rgba(131, 175, 214, 0.44);
+  box-shadow: none;
 }
 
 .start-hero h1 {
@@ -162,6 +211,16 @@
   font-weight: 700;
 }
 
+.hero-lead {
+  margin: 0 0 34px;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  color: #1a2f5e;
+  font-weight: 900;
+}
+
 .hero-title {
   font-size: 1.9rem;
   text-align: center;
@@ -194,6 +253,138 @@
 .start-questions-grid {
   display: grid;
   gap: 8px;
+}
+
+.start-stepper {
+  position: relative;
+  margin-top: 10px;
+  max-width: 430px;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 8px;
+}
+
+.start-stepper::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 22px;
+  bottom: 20px;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #8bb9e4, #8eb8df);
+  opacity: 0.9;
+}
+
+.start-step-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.step-node {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 0 rgba(54, 95, 139, 0.35);
+  position: relative;
+  z-index: 1;
+}
+
+.step-node.win {
+  background: linear-gradient(180deg, #ffd552, #f0ac1f);
+}
+
+.step-node.lose {
+  background: linear-gradient(180deg, #7ea2d8, #506ea2);
+}
+
+.step-node.mission {
+  background: linear-gradient(180deg, #63d4e0, #38aebd);
+}
+
+.step-node.quest {
+  background: linear-gradient(180deg, #4f8ded, #2f63c7);
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 2px solid #d0e4f6;
+  border-radius: 16px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 0 rgba(132, 176, 215, 0.28);
+  text-align: center;
+}
+
+.step-card-title {
+  margin: 0;
+  font-size: 1.06rem;
+  font-weight: 900;
+  color: #1e3559;
+}
+
+.step-card-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #3f5b80;
+  font-weight: 700;
+}
+
+.step-flow {
+  grid-column: 2;
+  justify-self: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: #5f89bc;
+  font-size: 1.05rem;
+  font-weight: 900;
+}
+
+.hero-explain {
+  margin-top: 44px;
+  text-align: center;
+}
+
+.hero-explain .hero-body,
+.hero-explain .hero-title {
+  text-align: center;
+}
+
+.hero-explain .hero-list {
+  text-align: left;
+  list-style: disc;
+  list-style-position: outside;
+  display: inline-block;
+  padding-left: 1.2em;
+}
+
+.hero-explain-intro {
+  margin-bottom: 26px;
+}
+
+.hero-explain-if {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.hero-explain-list {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.hero-explain-then {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .start-question-item {
@@ -391,29 +582,30 @@
 .cloud-c::after { width: 102px; height: 74px; right: 20px; top: -28px; }
 
 .start-screen-ground {
-  position: absolute;
-  left: -10%;
-  right: -10%;
-  bottom: -35px;
-  height: 250px;
-  background:
-    radial-gradient(circle at 13% 40%, #8fd470 0 26%, transparent 27%),
-    radial-gradient(circle at 88% 36%, #9cd66f 0 27%, transparent 28%),
-    radial-gradient(circle at 50% 65%, #7ab14d 0 56%, #6ea246 57%);
-  border-top-left-radius: 60% 50%;
-  border-top-right-radius: 60% 50%;
+  display: none;
 }
 
 @media (max-width: 560px) {
   .start-screen-page { padding: 12px 10px 24px; }
+  .start-hero { margin-top: 8px; }
+  .ld-logo-mark-wrap { --logo-size: 58px; }
+  .ld-logo { gap: 8px; }
+  .ld-logo-title { font-size: 1.7rem; }
+  .ld-logo-tagline { font-size: 0.82rem; }
   .start-level-bar { padding: 8px 10px; gap: 8px; }
   .level-text { font-size: 1.5rem; }
   .xp-text { font-size: 1.2rem; }
   .start-hero h1 { font-size: 4.4rem; }
+  .hero-lead { font-size: 1.6rem; }
   .hero-sub { font-size: 1.6rem; }
   .hero-title { font-size: 1.65rem; }
   .hero-body { font-size: 1.1rem; }
   .hero-list { font-size: 1.06rem; }
+  .start-stepper::before { left: 20px; }
+  .start-step-item { grid-template-columns: 40px 1fr; gap: 9px; }
+  .step-node { width: 40px; height: 40px; font-size: 1.05rem; }
+  .step-card-title { font-size: 1rem; }
+  .step-card-subtitle { font-size: 0.84rem; }
   .quest-text strong { font-size: 1.62rem; }
   .quest-text small { font-size: 1.06rem; }
   .start-cta { font-size: 1.8rem; }

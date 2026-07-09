@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 288" role="img" aria-label="LifeDesign symbol">
+  <defs>
+    <linearGradient id="bgYellow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f4c536"/>
+      <stop offset="100%" stop-color="#f7ea5d"/>
+    </linearGradient>
+    <linearGradient id="roadAqua" x1="8%" y1="96%" x2="92%" y2="4%">
+      <stop offset="0%" stop-color="#34bbc9"/>
+      <stop offset="100%" stop-color="#72dded"/>
+    </linearGradient>
+    <linearGradient id="roadBlue" x1="12%" y1="98%" x2="88%" y2="2%">
+      <stop offset="0%" stop-color="#2a63d3"/>
+      <stop offset="100%" stop-color="#47aff0"/>
+    </linearGradient>
+    <linearGradient id="roadDeep" x1="16%" y1="100%" x2="84%" y2="0%">
+      <stop offset="0%" stop-color="#1f45b6"/>
+      <stop offset="100%" stop-color="#4cb3f2"/>
+    </linearGradient>
+    <clipPath id="clipCircle">
+      <circle cx="144" cy="144" r="128"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#clipCircle)">
+    <circle cx="144" cy="144" r="128" fill="url(#bgYellow)"/>
+    <path d="M30 230C61 192 90 163 122 136C148 114 172 90 198 64C187 100 176 138 165 176C157 207 151 233 147 258C104 254 63 245 30 230Z" fill="url(#roadAqua)"/>
+    <path d="M85 260C93 214 111 174 138 140C165 107 192 82 220 61C213 103 207 142 208 187C209 223 214 246 223 261C197 267 163 267 131 262Z" fill="url(#roadBlue)"/>
+    <path d="M208 261C193 237 185 209 185 175C185 133 197 96 226 62C246 91 255 124 255 160C255 199 236 232 208 261Z" fill="url(#roadDeep)"/>
+    <path d="M49 223C80 191 112 160 145 129C168 107 188 87 207 68" fill="none" stroke="#111b2f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M130 261C137 217 149 179 168 146C184 116 201 91 221 69" fill="none" stroke="#111b2f" stroke-width="10" stroke-linecap="round"/>
+  </g>
+</svg>
